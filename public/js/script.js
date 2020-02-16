@@ -31,13 +31,13 @@ const form = document.querySelector('form')
 const search = document.querySelector('input')
 const msg1 = document.getElementById('msg1')
 const msg2 = document.getElementById('msg2')
-msg1.textContent=''
-msg1.textContent=''
+const msg3 = document.getElementById('msg3')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
     msg1.textContent='loading...'
     msg2.textContent=''
+    msg3.textContent=''
     fetch(`/weather?address=${search.value}`)
     .then((response) =>{
     //console.log(response)
@@ -47,8 +47,9 @@ form.addEventListener('submit', (event) => {
            msg1.textContent=data.error
            msg2.textContent=''
        } else{
-           msg1.textContent = `you seached for location ${data.location}`
-           msg2.textContent= `The weather here is ${data.weathersummary}`
+           msg1.textContent = `you seached for location ${data.location} which is in timeZone ${data.timezone}`
+           msg2.textContent= `The Tempreature here is ${data.temp}. The chance of rain is ${data.rainPercentage}The weather here is ${data.weathersummary}`
+           msg3.textContent=  `The max tempreature here today is ${data.highTemp} and the min temp today is ${data.lowTemp}`
            console.log(data)
        }
    }) 

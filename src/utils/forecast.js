@@ -14,7 +14,9 @@ const getWeatherInfo = (lattitude, longitude, place, callback) =>{
                     TimeZone: body.timezone,
                     Temp: body.currently.temperature,
                     Rain: body.currently.precipProbability,
-                    summary: body.currently.summary
+                    summary: body.hourly.summary,
+                    highest: body.daily.data[0].temperatureHigh,
+                    lowest: body.daily.data[0].temperatureLow
                 })
                 //console.log(`This is ${place} belongs to TimeZone '${response.body.timezone}'.It is currently ${response.body.currently.temperature} degrees out there and there is ${response.body.currently.precipProbability} % chance of rain.`)
             }

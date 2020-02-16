@@ -85,7 +85,9 @@ app.get('/weather', (req, res) => {
                     timezone: Data.TimeZone,
                     temp:Data.Temp,
                     rainPercentage: Data.Rain,
-                    weathersummary: Data.summary 
+                    weathersummary: Data.summary,
+                    highTemp: Data.highest,
+                    lowTemp: Data.lowest
                 })
         })
      })
